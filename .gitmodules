@@ -1,0 +1,9 @@
+[submodule "mam"]
+	path = mam
+	url = https://github.com/hyoo-ru/mam.git
+[submodule "mol"]
+	path = mol
+	url = https://github.com/hyoo-ru/mam_mol.git
+[submodule "node"]
+	path = node
+	url = https://github.com/hyoo-ru/mam_node.git
