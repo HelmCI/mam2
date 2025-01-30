@@ -1,0 +1,14 @@
+.g2:
+  variables:
+    NS: g2
+    APP: g2
+
+g2-build:
+  extends:
+    - .build
+    - .g2
+
+g2-deploy:
+  extends:
+    - .deploy
+    - .g2

@@ -1,0 +1,35 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_MESSAGE =~ /skip ci/
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: always
+
+.rules:
+  d: &d # for debug gitlab-ci
+    changes:
+      - .gitlab-ci.yml
+      - .ci/**/*.ci.yml
+      - Dockerfile
+  changes_demo_env: &changes_demo_env
+    changes:
+      - gd/demo/.env
+  changes_g2_env: &changes_g2_env
+    changes:
+      - g2/g2/.env
+
+demo-build:
+  rules:
+    - *changes_demo_env
+demo-deploy:
+  rules:
+    - *changes_demo_env
+
+g2-build:
+  rules:
+    - *changes_g2_env
+g2-deploy:
+  rules:
+    - *changes_g2_env
+    # - *d

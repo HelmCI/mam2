@@ -1,0 +1,17 @@
+variables:
+  REG: reg..
+  REG_NS: gd
+  NS: $REG_NS
+  _CI: ci-infra
+  _GITLAB: gitlab..
+  _GITLAB_PROJECT: d
+  _K: /root/.kube/config
+
+stages:
+  - build
+  - deploy
+
+default:
+  image: $REG/dhub/library/docker:27.5.1-cli # https://hub.docker.com/_/docker
+  tags:
+    - kube-runner

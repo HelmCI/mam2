@@ -7,3 +7,6 @@
 [submodule "node"]
 	path = node
 	url = https://github.com/hyoo-ru/mam_node.git
+[submodule "mol_icon"]
+	path = mol_icon
+	url = https://github.com/nin-jin/mol_icon.git

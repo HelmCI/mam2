@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "nin-jin.vscode-language-tree",
+		"stan-donarise.view-tree-language",
+        "editorconfig.editorconfig",
+        "irongeek.vscode-env"
+    ]
+}

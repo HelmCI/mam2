@@ -1,0 +1,15 @@
+.demo:
+  variables:
+    NS: gd
+    APP: demo
+    VER_BUILD: -mam2
+
+demo-build:
+  extends:
+    - .build
+    - .demo
+
+demo-deploy:
+  extends:
+    - .deploy
+    - .demo

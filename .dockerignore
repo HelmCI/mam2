@@ -1,0 +1,16 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!/package*
+!/tsconfig.json
+!/.meta.tree
+!/node
+!/m*
+!/g*
+!/nginx.conf
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/-*
+**/.DS_Store

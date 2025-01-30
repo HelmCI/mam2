@@ -1,1 +1,28 @@
-mam/package.json
+{
+	"description": "Simple MAM project",
+	"scripts": {
+		"mam": "GIT=1 mam mol/build",
+		"mam2": "mam mol/build",
+		"start": "node ./mol/build/-/node.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hyoo-ru/mam.git"
+	},
+	"keywords": [
+		"mam"
+	],
+	"author": "jin",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/hyoo-ru/mam/issues"
+	},
+	"homepage": "https://github.com/hyoo-ru/mam#readme",
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"dependencies": {
+		"mam": "^1.11.465",
+		"web-audio-api": "^0.2.2"
+	}
+}

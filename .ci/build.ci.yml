@@ -1,0 +1,21 @@
+.build:
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: "normal"
+    GIT_SUBMODULE_DEPTH: "1"
+    BUILD_ARG: --platform linux/arm64,linux/amd64
+  tags:
+    - buildx
+  before_script:
+    - source .env
+    - source $NS/$APP/.env
+  script:
+    - CMD="docker buildx build --push -t $REG/$REG_NS/$APP:$RT$VER_BUILD
+      --build-arg REG=$REG
+      --build-arg NODE=$NODE
+      --build-arg NGINX=$NGINX
+      --build-arg NS=$NS
+      --build-arg APP=$APP
+      $BUILD_ARG ."
+    - echo $CMD
+    - $CMD
