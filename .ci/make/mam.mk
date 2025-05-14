@@ -17,11 +17,15 @@ mam_clean:
 	fd -It d '^-' -X rm -rf
 	rm -rf node_modules
 	rm -rf mol/icon
-mam_install: mam_clean
-	ln -s ../mol_icon mol/icon
+mam_install:
+	ln -s ../mol_icon mol/icon ||:
 	npm install
 	make mam_node_modules_fix_append
 	npm run mam2
 	make mam_mol_fix_append
 	node ./gd/snap.npm/cli.mjs gd/demo/app
+mam_init: \
+		git_submodule_update \
+		mam_clean \
+		mam_install
 	npm start

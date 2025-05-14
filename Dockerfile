@@ -1,14 +1,11 @@
 # syntax=docker/dockerfile:1.7-labs
-ARG REG=reg..
+ARG REG=reg.ocas.ai
 ARG NODE=23
 ARG NGINX=1
 
 
 FROM --platform=$BUILDPLATFORM ${REG}/dhub/library/node:${NODE} AS node
 ARG MAM=/mam
-ARG NS=gd
-ARG APP=demo
-
 WORKDIR ${MAM}
 
 COPY --exclude=g* . .
@@ -22,13 +19,16 @@ RUN	cat mam_fix/mam.js >> mol/build/-/node.js
 # RUN node ./gd/snap.npm/cli.mjs gd/snap.npm
 
 # COPY g2/ g2/
-# RUN npm start ${NS}/${APP}/app
+# ARG NS=gd
+# ARG APP=demo
+# ARG CMD="npm start"
+# RUN ${CMD} ${NS}/${APP}/app
 
 
 FROM ${REG}/dhub/library/nginx:${NGINX}
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 ARG MAM=/mam
 ARG NS=gd
 ARG APP=demo
-
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=node ${MAM}/${NS}/${APP}/app/-/ /usr/share/nginx/html/

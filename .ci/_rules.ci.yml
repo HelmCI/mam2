@@ -12,19 +12,19 @@ workflow:
       - .gitlab-ci.yml
       - .ci/**/*.ci.yml
       - Dockerfile
-  changes_demo_env: &changes_demo_env
+  changes_env: &changes_env
     changes:
-      - gd/demo/.env
+      - .env
   changes_g2_env: &changes_g2_env
     changes:
       - g2/g2/.env
 
-demo-build:
+demo-build: &env
   rules:
-    - *changes_demo_env
-demo-deploy:
-  rules:
-    - *changes_demo_env
+    - *changes_env
+demo-deploy: *env
+lk-build:  *env
+lk-deploy: *env
 
 g2-build:
   rules:

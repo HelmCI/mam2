@@ -1,18 +1,16 @@
 .deploy:
   variables:
-    GIT_SUBMODULE_STRATEGY: "normal"
     GIT_SUBMODULE_PATHS: gd
-    GIT_SUBMODULE_DEPTH: "1"
-    _KUBE_CONFIG: $KUBE_CONFIG_DEV1
+    _KUBE_CONFIG: $KUBE_CONFIG_DEV2
   stage: deploy
-  image: $REG/ci/helmwave:0.41.8
+  image: $REG/ci/helmwave:0.41.9
   script:
-    - source $NS/$APP/.env && echo NS=$NS APP=$APP VER=$RT$VER_BUILD
+    - source $NS/$APP/.env && echo NS=$NS APP=$APP VER=$RT-$VER
     - git clone --single-branch --depth 1 https://gitlab-ci-token:$CI_JOB_TOKEN@$_GITLAB/$_GITLAB_PROJECT/$_CI.git
     - cd $_CI
     - git submodule update --init --depth 1 ci
     - cp $_KUBE_CONFIG $_K
-    - V=$RT$VER_BUILD helmwave up -t $APP,$ADD
+    - V=$RT-$VER helmwave up -t $APP,$ADD
   environment:
     name: "ref/$CI_COMMIT_REF_SLUG"
   artifacts:

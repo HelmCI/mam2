@@ -1,14 +1,14 @@
-.demo:
+.lk:
   variables:
     NS: gd
-    APP: demo
+    APP: lk
 
-demo-build:
+lk-build:
   extends:
     - .build
-    - .demo
+    - .lk
 
-demo-deploy:
+lk-deploy:
   extends:
     - .deploy
-    - .demo
+    - .lk

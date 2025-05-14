@@ -5,9 +5,7 @@
 ## bootstrap
 
 ```sh
-git submodule update --init --depth 1
-npm install
-npm start
+make mam_init
 ```
 - http://localhost:9080/mol/wire/dom/-/test.html
 

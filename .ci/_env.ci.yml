@@ -6,12 +6,18 @@ variables:
   _GITLAB: gitlab..
   _GITLAB_PROJECT: d
   _K: /root/.kube/config
+  GIT_SUBMODULE_STRATEGY: "normal"
+  GIT_SUBMODULE_DEPTH: "1"
 
 stages:
   - build
   - deploy
 
 default:
-  image: $REG/dhub/library/docker:27.5.1-cli # https://hub.docker.com/_/docker
+  image: $REG/dhub/library/docker:28.1.1-cli # https://hub.docker.com/_/docker
   tags:
     - kube-runner
+    # - buildx
+  before_script:
+    - source .env
+    - source $NS/$APP/.env
