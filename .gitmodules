@@ -10,3 +10,6 @@
 [submodule "mol_icon"]
 	path = mol_icon
 	url = https://github.com/nin-jin/mol_icon.git
+[submodule "hyoo"]
+	path = hyoo
+	url = https://github.com/hyoo-ru/mam_hyoo.git

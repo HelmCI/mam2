@@ -29,6 +29,8 @@ make mam_init
 
 ## Как было собрано:
 
+Repos: [/](.meta.tree) / [hyoo](hyoo/hyoo.meta.tree)
+
 ```sh
 git submodule add --depth 1 -- https://github.com/hyoo-ru/mam.git
 git submodule add --depth 1 -- https://github.com/hyoo-ru/mam_mol.git mol
@@ -47,6 +49,8 @@ ln -s mam/.editorconfig
 ln -s mam/.vscode
 ln -s mam/tsfmt.json
 ln -s mam/.prettierrc.json
+
+git submodule add --depth 1 -- https://github.com/hyoo-ru/mam_hyoo.git hyoo
 ```
 
 ## TODO:
